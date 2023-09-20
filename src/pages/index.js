@@ -1,12 +1,15 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
+import RootLayout from "@/components/Layout/RootLayout";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+const Home = () => {
   return (
-    <div data-theme="light" lang="en">
-      <h1>Home</h1>
+    <div>
+      <h1>Home Page</h1>
     </div>
   );
-}
+};
+
+export default Home;
+
+Home.getLayout = function getLayout(page) {
+  return <RootLayout>{page}</RootLayout>;
+};
