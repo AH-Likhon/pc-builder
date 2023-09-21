@@ -1,10 +1,11 @@
 import RootLayout from "@/components/Layout/RootLayout";
+import Banner from "@/components/UI/Banner";
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <>
+      <Banner />
+    </>
   );
 };
 
