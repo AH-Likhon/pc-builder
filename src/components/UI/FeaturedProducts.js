@@ -11,7 +11,7 @@ const FeaturedProducts = ({ data: products }) => {
       </h1>
       <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {products?.map((product) => (
-          <div key={product._id} className="card bg-white-100 shadow-xl">
+          <div key={product?._id} className="card bg-white-100 shadow-xl">
             <figure className="px-10 pt-10">
               <Image
                 src={product?.image}
@@ -32,12 +32,12 @@ const FeaturedProducts = ({ data: products }) => {
                 <p>Rating: {product?.rating}</p>
               </div>
               <div className="card-actions w-full">
-                <button
-                  // onClick={() => handleSelect(product)}
+                <Link
                   className="btn w-1/3 mx-auto"
+                  href={`/products/${product?._id}`}
                 >
-                  <Link href={`/allProduct/${product._id}`}>Details</Link>
-                </button>
+                  Details
+                </Link>
               </div>
             </div>
           </div>
