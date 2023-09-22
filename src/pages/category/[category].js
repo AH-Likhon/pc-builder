@@ -2,7 +2,7 @@ import RootLayout from "@/components/Layout/RootLayout";
 import Image from "next/image";
 import Link from "next/link";
 
-const Ram = ({ data }) => {
+const Category = ({ data }) => {
   const { data: products } = data;
   // console.log(products);
 
@@ -43,9 +43,9 @@ const Ram = ({ data }) => {
   );
 };
 
-export default Ram;
+export default Category;
 
-Ram.getLayout = function getLayout(page) {
+Category.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 

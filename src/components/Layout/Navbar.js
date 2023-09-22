@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 
 const Navbar = () => {
+  const { data: session } = useSession();
+
   return (
     <div className="navbar bg-base-200 flex justify-between">
       <div className="navbar-start">
@@ -25,17 +28,20 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content ml-[-8px] z-[1] p-4 shadow bg-base-100 w-screen font-semibold text-base"
           >
-            <li>
-              <p>Name</p>
-            </li>
-
-            <li>
-              <button>Sign Out</button>
-            </li>
-
-            <li>
-              <Link href="/login">Login</Link>
-            </li>
+            {session?.user ? (
+              <>
+                <li>
+                  <p>{session?.user.name}</p>
+                </li>
+                <li>
+                  <button onClick={() => signOut()}>Sign Out</button>
+                </li>
+              </>
+            ) : (
+              <li>
+                <Link href="/login">Login</Link>
+              </li>
+            )}
 
             <li>
               <Link href="/pc-builder">PC Builder</Link>
@@ -78,17 +84,20 @@ const Navbar = () => {
       </div>
       <div className="hidden lg:flex">
         <ul className="menu menu-horizontal lg:flex justify-between items-center text-lg font-semibold">
-          <li>
-            <p>Name</p>
-          </li>
-
-          <li>
-            <button>Sign Out</button>
-          </li>
-
-          <li>
-            <Link href="/login">Login</Link>
-          </li>
+          {session?.user ? (
+            <>
+              <li>
+                <p>{session?.user.name}</p>
+              </li>
+              <li>
+                <button onClick={() => signOut()}>Sign Out</button>
+              </li>
+            </>
+          ) : (
+            <li>
+              <Link href="/login">Login</Link>
+            </li>
+          )}
 
           <li>
             <Link href="/pc-builder">PC Builder</Link>
