@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const FeaturedProducts = ({ data: products }) => {
-  //   console.log("Featured Products::", products);
+  // console.log("Featured Products::", products);
 
   return (
     <div className="w-11/12 mx-auto pb-10">
@@ -34,7 +34,7 @@ const FeaturedProducts = ({ data: products }) => {
               <div className="card-actions w-full">
                 <Link
                   className="btn w-1/3 mx-auto"
-                  href={`/products/${product?._id}`}
+                  href={`/products/${product._id}`}
                 >
                   Details
                 </Link>
