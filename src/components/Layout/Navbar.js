@@ -1,6 +1,37 @@
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 
+const categories = [
+  {
+    title: "CPU/Processor",
+    link: "cpuProcessor",
+  },
+  {
+    title: "Motherboard",
+    link: "motherboard",
+  },
+  {
+    title: "RAM",
+    link: "ram",
+  },
+  {
+    title: "Power Supply",
+    link: "powerSupply",
+  },
+  {
+    title: "Storage",
+    link: "storage",
+  },
+  {
+    title: "Monitor",
+    link: "monitor",
+  },
+  {
+    title: "Others",
+    link: "others",
+  },
+];
+
 const Navbar = () => {
   const { data: session } = useSession();
 
@@ -50,27 +81,16 @@ const Navbar = () => {
             <li className="z-10">
               <a>Categories</a>
               <ul>
-                <li>
-                  <Link href="/cpu-processor">CPU/Processor</Link>
-                </li>
-                <li>
-                  <a>Motherboard</a>
-                </li>
-                <li>
-                  <a>RAM</a>
-                </li>
-                <li>
-                  <a>Power Supply Unit</a>
-                </li>
-                <li>
-                  <a>Storage Device</a>
-                </li>
-                <li>
-                  <a>Monitor</a>
-                </li>
-                <li>
-                  <a>Others</a>
-                </li>
+                {categories.map((category) => (
+                  <li key={category}>
+                    <Link
+                      className="capitalize hover:bg-transparent"
+                      href={`/category/${category.link}`}
+                    >
+                      {category.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </li>
           </ul>
@@ -107,27 +127,16 @@ const Navbar = () => {
             <details>
               <summary>Categories</summary>
               <ul className="p-4 w-[221px] left-[-70px] rounded-none">
-                <li>
-                  <Link href="/cpu-processor">CPU/Processor</Link>
-                </li>
-                <li>
-                  <Link href="/motherboard">Motherboard</Link>
-                </li>
-                <li>
-                  <Link href="/ram">RAM</Link>
-                </li>
-                <li>
-                  <Link href="/power-supply">Power Supply Unit</Link>
-                </li>
-                <li>
-                  <Link href="/storage">Storage Device</Link>
-                </li>
-                <li>
-                  <Link href="/monitor">Monitor</Link>
-                </li>
-                <li>
-                  <Link href="/others">Others</Link>
-                </li>
+                {categories.map((category) => (
+                  <li key={category}>
+                    <Link
+                      className="capitalize hover:bg-transparent"
+                      href={`/category/${category.link}`}
+                    >
+                      {category.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </details>
           </li>

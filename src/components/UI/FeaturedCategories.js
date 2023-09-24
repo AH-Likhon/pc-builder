@@ -22,7 +22,7 @@ const categories = [
     image: motherboard,
   },
   {
-    name: "power supply",
+    name: "powerSupply",
     image: powerSupply,
   },
   {
@@ -30,7 +30,7 @@ const categories = [
     image: storage,
   },
   {
-    name: "cpu",
+    name: "cpuProcessor",
     image: cpu,
   },
   {

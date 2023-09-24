@@ -20,14 +20,18 @@ const ProductDetails = ({ data }) => {
         </div>
 
         <div>
-          <h1 className="text-5xl font-bold">{product?.productName}</h1>
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold">
+            {product?.productName}
+          </h1>
           <p className="pt-4">Category: {product?.category}</p>
           <p className="pt-2">Status: {product?.status}</p>
           <p className="pt-2">Price: {product?.price}</p>
           <p className="pt-2">Key Features: {product?.keyFeatures}</p>
           <p className="pt-2">My Rating: {product?.rating}</p>
           <p className="pt-2">Average Rating: {product?.averageRating}</p>
-          <p className="font-bold">User Reviews</p>
+          <p className="text-xl md:text-2xl lg:text-3xl font-semibold my-4">
+            User Reviews
+          </p>
           {product?.reviews?.map((singleReview, i) => (
             <ul key={i}>
               {" "}
@@ -38,7 +42,7 @@ const ProductDetails = ({ data }) => {
             </ul>
           ))}
           <p className="py-4">Description: {product?.description}</p>
-          <button className="btn btn-primary">Buy now</button>
+          <button className="btn">Buy now</button>
         </div>
       </div>
     </div>
