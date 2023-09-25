@@ -26,6 +26,7 @@ const Item = ({ data }) => {
               height="290"
               width="250"
               alt={product?.category}
+              responsive
             />
           </figure>
           <div className="card-body items-center text-center">
@@ -64,7 +65,7 @@ export const getServerSideProps = async (context) => {
   const { params } = context;
   // console.log("Ram::", params);
   const res = await fetch(
-    `http://localhost:3000/api/products?category=${params.item}`
+    `https://pc-builder-server-gray.vercel.app/api/v1/products?category=${params.item}`
   );
   const data = await res.json();
 

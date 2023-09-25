@@ -8,7 +8,7 @@ const Login = () => {
         className="btn"
         onClick={() =>
           signIn("google", {
-            callbackUrl: "http://localhost:3000",
+            callbackUrl: "/",
           })
         }
       >

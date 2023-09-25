@@ -58,6 +58,7 @@ const FeaturedCategories = () => {
                 alt="ram"
                 width="100"
                 height="50"
+                responsive
               />
               <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-center">
                 {category.name}

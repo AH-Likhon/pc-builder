@@ -10,7 +10,7 @@ const FeaturedProducts = ({ data: products }) => {
         Featured Products
       </h1>
       <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {products?.map((product) => (
+        {products?.slice(0, 10)?.map((product) => (
           <div key={product?._id} className="card bg-white-100 shadow-xl">
             <figure className="px-10 pt-10">
               <Image
@@ -18,6 +18,7 @@ const FeaturedProducts = ({ data: products }) => {
                 height="290"
                 width="250"
                 alt={product?.category}
+                responsive
               />
             </figure>
             <div className="card-body items-center text-center">

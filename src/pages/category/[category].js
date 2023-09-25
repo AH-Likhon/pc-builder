@@ -16,6 +16,7 @@ const Category = ({ data }) => {
               height="290"
               width="250"
               alt={product?.category}
+              responsive
             />
           </figure>
           <div className="card-body items-center text-center">
@@ -50,7 +51,9 @@ Category.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`http://localhost:3000/api/products`);
+  const res = await fetch(
+    `https://pc-builder-server-gray.vercel.app/api/v1/products`
+  );
   const { data: product } = await res.json();
 
   const paths = product.map((product) => ({
@@ -67,7 +70,7 @@ export const getStaticProps = async (context) => {
   const { params } = context;
   // console.log("Ram::", params);
   const res = await fetch(
-    `http://localhost:3000/api/products?category=${params.category}`
+    `https://pc-builder-server-gray.vercel.app/api/v1/products?category=${params.category}`
   );
   const data = await res.json();
 

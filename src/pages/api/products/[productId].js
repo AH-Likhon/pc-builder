@@ -23,7 +23,7 @@ async function run(req, res) {
         _id: id,
       });
 
-      console.log(result);
+      // console.log(result);
 
       res.send({ message: "success", status: 200, data: result });
     }

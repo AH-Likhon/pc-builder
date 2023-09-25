@@ -7,7 +7,7 @@ const ProductDetails = ({ data }) => {
 
   return (
     <div className="hero w-11/12 mx-auto py-10">
-      <div className=" hero-content w-full flex-col lg:flex-row">
+      <div className="hero-content w-full flex-col lg:flex-row">
         <div className="mx-auto">
           <Image
             src={product?.image}
@@ -56,7 +56,9 @@ ProductDetails.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`http://localhost:3000/api/products`);
+  const res = await fetch(
+    `https://pc-builder-server-gray.vercel.app/api/v1/products`
+  );
   const { data: product } = await res.json();
 
   const paths = product.map((product) => ({
@@ -72,7 +74,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const { params } = context;
   const res = await fetch(
-    `http://localhost:3000/api/products/${params.productId}`
+    `https://pc-builder-server-gray.vercel.app/api/v1/products/${params.productId}`
   );
   const data = await res.json();
   // console.log(data);

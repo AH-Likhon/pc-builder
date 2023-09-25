@@ -82,6 +82,7 @@ const PC_Builder = () => {
                     src={categoryData.image}
                     height="150"
                     width="100"
+                    responsive
                   />
                   <div>
                     <p className="ml-4">Name: {categoryData?.category}</p>
